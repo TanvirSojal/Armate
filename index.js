@@ -51,14 +51,14 @@ const printModules = (modules) => {
 const printModuleAnalytics = (modules) => {
     log(chalk.cyanBright('--------------------------------\n|       Module Analytics       |\n--------------------------------'));
     
-    log('> Total Modules: ', modules.length);
+    log('> Total Modules:', modules.length);
 
     const existingNames = []
-    const duplicateNames = []
+    const duplicateNames = new Set()
 
     for (let i = 0; i < modules.length; i++){
         if (existingNames.includes(modules[i].name)){
-            duplicateNames.push(modules[i].name)
+            duplicateNames.add(modules[i].name)
         }
         existingNames.push(modules[i].name)
     }
@@ -68,7 +68,7 @@ const printModuleAnalytics = (modules) => {
     log('> Module Names are Unique? ', namesAreUnique)
 
     if (!namesAreUnique){
-        log('> Duplicate Module Names')
+        log('> Duplicate Module Names:', duplicateNames.size)
         duplicateNames.forEach(x => log(`   [*] ${x}`))
     }
 }
