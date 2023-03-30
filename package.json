@@ -1,0 +1,15 @@
+{
+  "name": "armate",
+  "version": "0.1.0",
+  "description": "arm template analyzer cli tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TanvirSojal",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "yargs": "^17.7.1"
+  }
+}
