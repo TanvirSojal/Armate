@@ -7,6 +7,7 @@ If you have a ARM Template JSON file. This CLI tool can analyze the file and pri
 - Total number of modules
 - Check whether it has any duplicate modules.
 - In case of duplicate modules, print their names so that it can be searched and edited
+- Currently only work with static module names
 
 ## Command
 Run the following command 

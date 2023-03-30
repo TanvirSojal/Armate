@@ -39,17 +39,12 @@ const getModulesFromTemplate = (templateFilePath) => {
     return deployments;
 }
 
-// needs review
 const printModules = (modules) => {
     log(chalk.cyanBright('--------------------------------\n|         Module List          |\n--------------------------------'));
     for(let i = 0; i < modules.length; i++){
         log(`${i + 1}. ${modules[i].name} [${modules[i].path}]`);
     }
     log();
-}
-
-const isUniqueString = (name) => {
-    return name.includes('uniqueString(')
 }
 
 const printModuleAnalytics = (modules) => {
@@ -61,10 +56,6 @@ const printModuleAnalytics = (modules) => {
     const duplicateNames = []
 
     for (let i = 0; i < modules.length; i++){
-        if (isUniqueString(modules[i].name)){
-            continue
-        }
-
         if (existingNames.includes(modules[i].name)){
             duplicateNames.push(modules[i].name)
         }
@@ -82,7 +73,6 @@ const printModuleAnalytics = (modules) => {
 }
   
 const printDeploymentAnalytics = (modules) => {
-    //printModules(modules)
     printModuleAnalytics(modules)
 }
 
