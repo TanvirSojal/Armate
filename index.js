@@ -4,6 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const chalk = require('chalk')
 const yargs = require('yargs')
+const figlet = require('figlet')
 
 const log = console.log
 
@@ -76,8 +77,6 @@ const printDeploymentAnalytics = (modules) => {
     printModuleAnalytics(modules)
 }
 
-//log(figlet.textSync('armate'))
-
 const argv = yargs
   .usage('Usage: [file]')
   .demandCommand(1)
@@ -91,5 +90,11 @@ if (!fs.existsSync(filePath)) {
   console.error(`File not found: ${fileName}`);
   process.exit(1);
 }
+
+log(figlet.textSync('armate', {
+    font: 'Isometric3'
+}))
+
+log(chalk.yellowBright('\n[pre-relase version]\n\n'))
 
 printDeploymentAnalytics(getModulesFromTemplate(filePath))
