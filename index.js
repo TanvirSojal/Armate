@@ -63,7 +63,7 @@ const printModuleAnalytics = (modules) => {
         existingNames.push(modules[i].name)
     }
 
-    const namesAreUnique = duplicateNames.length === 0;
+    const namesAreUnique = duplicateNames.size === 0;
 
     log('> Module Names are Unique? ', namesAreUnique)
 
