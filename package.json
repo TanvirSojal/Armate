@@ -1,6 +1,6 @@
 {
   "name": "armate",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "ARM Template Analyzer CLI Tool",
   "main": "index.js",
   "scripts": {},
