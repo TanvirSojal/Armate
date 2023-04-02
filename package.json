@@ -4,6 +4,9 @@
   "description": "ARM Template Analyzer CLI Tool",
   "main": "index.js",
   "scripts": {},
+  "bin": {
+    "armate": "./index.js"
+  },
   "author": "TanvirSojal",
   "repository": {
     "type": "git",
