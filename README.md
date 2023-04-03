@@ -10,14 +10,9 @@ If you have an ARM Template JSON file. This CLI tool can analyze the file and ou
    - In case of duplicate modules, print their names so that they can be searched and edited
    - Currently, only work with static module names
 
-## Installation
-```
-npm i -g armate
-```
-
 ## Usage
 ```
-npx armate <arm_template_json_path>
+npx armate@latest <arm_template_json_path>
 ```
 
 ## Example
