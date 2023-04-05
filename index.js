@@ -6,7 +6,7 @@ const chalk = require('chalk')
 const yargs = require('yargs')
 const figlet = require('figlet')
 const { getResourcesFromTemplate, getDeployments } = require('./library/utils/armUtils')
-const { printModuleAnalytics } = require('./library/analytics')
+const { printResourceAnalytics, printModuleAnalytics } = require('./library/analytics')
 
 const log = console.log
 
@@ -30,10 +30,12 @@ log(figlet.textSync('armate', {
 
 log(chalk.yellowBright('\n[pre-relase version]\n\n'))
 
-const printResourceAnalytics = (filePath) => {
+const printAnalytics = (filePath) => {
     const resources = getResourcesFromTemplate(filePath)
+    printResourceAnalytics(resources)
+
     const deploymentModules = getDeployments(resources)
     printModuleAnalytics(deploymentModules)
 }
 
-printResourceAnalytics(filePath)
+printAnalytics(filePath)

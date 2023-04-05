@@ -2,10 +2,22 @@ const chalk = require('chalk')
 
 const log = console.log
 
+const printResourceAnalytics = (resources) => {
+    log(chalk.cyanBright('--------------------------------\n|      Resource Analytics      |\n--------------------------------'));
+
+    log('> Total Resources:', resources.length)
+
+    const previewVersions = resources.filter(x => x.apiVersion.endsWith('preview'))
+
+    log('> Preview Versions Used:', previewVersions.length)
+
+    previewVersions.forEach(x => log(`   [*] ${x.type} : ${x.apiVersion}`))
+}
+
 const printModuleAnalytics = (modules) => {
     log(chalk.cyanBright('--------------------------------\n|       Module Analytics       |\n--------------------------------'));
     
-    log('> Total Modules:', modules.length);
+    log('> Total Modules:', modules.length)
 
     const existingNames = []
     const duplicateNames = new Set()
@@ -28,5 +40,6 @@ const printModuleAnalytics = (modules) => {
 }
 
 module.exports = {
+    printResourceAnalytics,
     printModuleAnalytics
 }
