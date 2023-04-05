@@ -4,11 +4,14 @@
 
 ## Features
 If you have an ARM Template JSON file. This CLI tool can analyze the file and output,
-1. Module Analysis
+1. Resource Analytics
+   - Total number of resources
+   - Total number of resources with `preview` Version
+2. Module Analysis
    - Total number of modules (Resource type: `Microsoft.Resources/deployments`)
-   - Check whether it has any duplicate modules.
-   - In case of duplicate modules, print their names so that they can be searched and edited
-   - Currently, only work with static module names
+   - Check whether it has any **duplicate modules**
+   - In case of duplicate modules, print their names
+   - **Currently, only work with static module names**
 
 ## Usage
 ```
@@ -19,11 +22,17 @@ npx armate@latest <arm_template_json_path>
 
 If the current directory contains a `deployment.json`, run:
 ```
-npx armate deployment.json
+npx armate@latest deployment.json
 ```
 
  this tool will analyze it and print the result in the following format:
 ```
+--------------------------------
+|      Resource Analytics      |
+--------------------------------
+> Total Resources: 6
+> Preview Versions Used: 1
+   [*] Microsoft.Insights/diagnosticSettings : 2021-05-01-preview
 --------------------------------
 |       Module Analytics       |
 --------------------------------
