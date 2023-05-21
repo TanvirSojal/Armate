@@ -9,9 +9,11 @@ const printResourceAnalytics = (resources) => {
 
     const previewVersions = resources.filter(x => x.apiVersion.endsWith('preview'))
 
-    log('> Preview Versions Used:', previewVersions.length)
+    const distinctVersions = new Set(previewVersions.map(x => `${x.type} : ${x.apiVersion}`))
 
-    previewVersions.forEach(x => log(`   [*] ${x.type} : ${x.apiVersion}`))
+    log('> Preview Versions Used:', distinctVersions.size)
+
+    distinctVersions.forEach(x => log(`   [*] ${x}`))
 }
 
 const printModuleAnalytics = (modules) => {
